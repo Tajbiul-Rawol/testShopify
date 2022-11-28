@@ -1,0 +1,119 @@
+<style > :root
+{
+  --heading-font-family: "ITCClearface", serif;
+  --heading-font-weight: 300;
+  --heading-color: #333333;
+}
+
+.Heading {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-style: var(--heading-font-style);
+  color: var(--heading-color);
+  font-size: 3rem;
+  text-align: {{ section.settings.text_align }};
+  transition: color 0.2s ease-in-out;
+  padding-bottom: 5%;
+  margin-bottom: 0;
+}
+
+u-h4 {
+  text-align: {{ section.settings.text_align }};
+  line-height: 1.1;
+  font-size: 4rem;
+}
+.margin-left {
+  margin-left: 20%;
+}
+.padding-top {
+  padding-top: 2%;
+}
+.padding-bottom {
+  padding-bottom: 2%;
+}
+
+.published_date {
+  font-size: 0.8em;
+}
+.bg-color {
+  background-color: {{ section.settings.color_scheme }};
+}
+</style><section class="bg-color title-section-{{ section.id }}">
+<div class="margin-left padding-top padding-bottom">
+  {% render 'breadcrumbs' %}
+  <span class="published_date">
+    {{ section.settings.published_date }}
+  </span>
+</div>
+<h1 class="Heading u-h4">
+  {{ section.settings.title }}
+</h1></section>{% schema %}
+{
+  "name": "wax-journal-title",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Blog title"
+    }, {
+      "type": "text",
+      "id": "published_date",
+      "label": "Date of Publish",
+      "default": " October 30, 2022 "
+    }, {
+      "type": "select",
+      "id": "text_align",
+      "label": "Heading Text Align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        }, {
+          "value": "center",
+          "label": "Center"
+        }, {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }, {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "#e9e1d0",
+          "label": "accent-3"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        }, {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        }, {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "accent-1",
+      "label": "t:sections.all.colors.label"
+    }
+  ],
+  "presets": [
+    {
+      "category": "content",
+      "name": "wax_journal_title"
+    }
+  ]
+}
+{% endschema %}

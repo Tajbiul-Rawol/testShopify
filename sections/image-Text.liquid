@@ -1,0 +1,92 @@
+<style>
+  .bg-color {
+    background-color: {{ section.settings.color_scheme }};
+  }
+  .image-Container {
+    display: flex;
+    justify-content: {{ section.settings.image_align }};
+  }
+  .image {
+    width: 50%;
+    object-fit: cover;
+  }
+  .para {
+    display: flex;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+</style>
+<section class="bg-color">
+  <div class="image-Container">
+    <img src=" {{ section.settings.image_p | img_url: 'grande' }} " class="image" alt="" width="" height="" loading="lazy">
+    <br>
+  </div>
+  <p class="para">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit nostrum. Vel deserunt tenetur, provident sint obcaecati deleniti dolorum consequatur harum quae sequi delectus nam, commodi doloribus doloremque asperiores sed?
+  </p>
+</section>
+
+{% schema %}
+  {
+    "name": "image-text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image_p",
+        "label": "image change"
+      }, {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+          {
+            "value": "accent-1",
+            "label": "t:sections.all.colors.accent_1.label"
+          },
+          {
+            "value": "accent-2",
+            "label": "t:sections.all.colors.accent_2.label"
+          },
+          {
+            "value": "#e9e1d0",
+            "label": "accent-3"
+          },
+          {
+            "value": "background-1",
+            "label": "t:sections.all.colors.background_1.label"
+          }, {
+            "value": "background-2",
+            "label": "t:sections.all.colors.background_2.label"
+          }, {
+            "value": "inverse",
+            "label": "t:sections.all.colors.inverse.label"
+          }
+        ],
+        "default": "accent-1",
+        "label": "t:sections.all.colors.label"
+      }, {
+        "type": "select",
+        "id": "image_align",
+        "label": "Image Align",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          }, {
+            "value": "center",
+            "label": "Center"
+          }, {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "center"
+      }
+    ],
+    "presets": [
+      {
+        "category": "content",
+        "name": "image-text"
+      }
+    ]
+  }
+{% endschema %}
