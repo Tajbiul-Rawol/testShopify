@@ -1,7 +1,27 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "blocks": {
+        "051411c4-b897-497d-85cf-22611fd6c7c8": {
+          "type": "custom-block",
+          "settings": {
+            "title": "404-Page Not Found",
+            "subtext": "Oops, it looks like the page you are looking for is no longer here...",
+            "image_p": "shopify:\/\/shop_images\/illustrations-frustrated-expression-business-man-oops-404-error-design-concept-landing-page_576269-315.webp",
+            "after_break": "Choose one of the links below or",
+            "linkText": "click here to return home.",
+            "link": "https:\/\/demodevelopmenttstore.myshopify.com\/?ose=false",
+            "text_align": "center",
+            "image_align": "center"
+          }
+        }
+      },
+      "block_order": [
+        "051411c4-b897-497d-85cf-22611fd6c7c8"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
