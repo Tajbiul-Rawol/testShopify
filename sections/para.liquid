@@ -1,43 +1,29 @@
 <style>
-  .bg-color {
-    background-color: {{ section.settings.color_scheme }};
-  }
-  .image-Container {
-    display: flex;
-    justify-content: {{ section.settings.image_align }};
-  }
-  .image {
-    width: 50%;
-    object-fit: cover;
-    padding-bottom: 2.5%;
-  }
+  {%- comment -%}
+    .bg-color {
+      background-color: {{ section.settings.color_scheme }};
+    }
+  {%- endcomment -%}
   .para {
     display: flex;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin: 0 30%;
     font-size: 1.5rem;
     font-family: 'Maison Neue', 'Neue Haas Unica', sans-serif;
+    padding-bottom: 20px;
   }
 </style>
+
 <section class="bg-color">
-  <div class="image-Container">
-    <img src=" {{ section.settings.image_p | img_url: 'grande' }} " class="image" alt="" width="" height="" loading="lazy">
-    <br>
-  </div>
   <p class="para">
-    {{ section.settings.sub_text }}
+    {{ section.settings.para }}
   </p>
 </section>
 
 {% schema %}
   {
-    "name": "image-text",
+    "name": "para",
     "settings": [
       {
-        "type": "image_picker",
-        "id": "image_p",
-        "label": "image change"
-      }, {
         "type": "select",
         "id": "color_scheme",
         "options": [
@@ -67,33 +53,16 @@
         "default": "accent-1",
         "label": "t:sections.all.colors.label"
       }, {
-        "type": "select",
-        "id": "image_align",
-        "label": "Image Align",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "center",
-            "label": "Center"
-          }, {
-            "value": "right",
-            "label": "Right"
-          }
-        ],
-        "default": "center"
-      }, {
         "type": "text",
-        "id": "sub_text",
-        "label": " Sub Text",
+        "id": "para",
+        "label": "Paragraph",
         "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolor, sunt ratione labore alias eius voluptatibus! Reprehenderit in, sint, eligendi consequatur animi illum, dolorem sit tempora voluptatem quas iste labore!"
       }
     ],
     "presets": [
       {
         "category": "content",
-        "name": "image-text"
+        "name": "para"
       }
     ]
   }
